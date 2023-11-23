@@ -1,4 +1,4 @@
-/*
+/*  четные числа
 DROP table IF EXISTS numbers//
 create TABLE numbers(
 		id int
@@ -8,15 +8,18 @@ CREATE PROCEDURE nums_while ()
 BEGIN
   DECLARE i INT DEFAULT 1;
   WHILE i <= 10 DO
+	
+  if (i%2=0) then
 	INSERT INTO numbers VALUES (i);
-  select id from numbers;
+	select id from numbers;
+  end if;
+     
     SET i = i + 1;
   END WHILE;
 END//
-
-CALL nums_while()//
+CALL nums_while()////
 */
-
+/* секунды*/
 select concat(cast(floor(123456/60/60/24) as char(3)),'  - day ,  ',
 cast(floor(mod(123456/60/60/24,1)*24) as char(2)),' - hours , ',
 cast(floor(mod(mod(123456/60/60/24,1)*24,1)*60) as char(2)),' - minutes , ',
